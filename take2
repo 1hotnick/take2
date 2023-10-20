@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tacos and Shawarma Podcast</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+        body {
+            font-family: 'Permanent Marker', cursive;
+            margin: 0;
+            padding: 0;
+            background-color: #0070c9;
+            background-image: url('clouds_and_palmtrees.png');
+            color: yellow;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        .page {
+            display: none;
+            padding: 50px;
+            text-align: center;
+        }
+        .page.active {
+            display: block;
+        }
+        .button {
+            display: inline-block;
+            padding: 20px 30px;
+            margin: 10px;
+            background-color: #0070c9;
+            color: yellow;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #005999;
+        }
+        h1 {
+            color: yellow;
+            font-size: 2.5em;
+        }
+        a {
+            color: yellow;
+        }
+    </style>
+    <script>
+        function showPage(pageId) {
+            var pages = document.getElementsByClassName('page');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].classList.remove('active');
+            }
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</head>
+<body>
+    <div id="home" class="page active">
+        <h1>Welcome to Tacos and Shawarma Podcast</h1>
+        <a href="#" class="button" onclick="showPage('getOnPodcast')">Get on the podcast</a>
+        <a href="#" class="button" onclick="showPage('sponsorPodcast')">Sponsor the podcast</a>
+        <p>Check us out on:</p>
+        <a href="https://www.youtube.com/@tacosandshawarma" target="_blank">YouTube</a><br>
+        <a href="https://www.instagram.com/tacosnshawarma/" target="_blank">Instagram</a><br>
+        <a href="https://www.tiktok.com/@tacosnshawarma" target="_blank">TikTok</a> <!-- Added TikTok link -->
+    </div>
+
+    <div id="getOnPodcast" class="page">
+        <h1>Get on the Podcast</h1>
+        <!-- Stripe payment form goes here -->
+        <form action="/submit_form" method="post">
+            <label for="message">Your Message:</label><br>
+            <textarea id="message" name="message"></textarea><br>
+            <input type="submit" value="Submit">
+        </form>
+        <a href="#" class="button" onclick="showPage('home')">Back</a>
+    </div>
+
+    <div id="sponsorPodcast" class="page">
+        <h1>Sponsor the Podcast</h1>
+        <!-- Stripe payment form goes here -->
+        <form action="/submit_form" method="post">
+            <label for="message">Your Message:</label><br>
+            <textarea id="message" name="message"></textarea><br>
+            <input type="submit" value="Submit">
+        </form>
+        <a href="#" class="button" onclick="showPage('home')">Back</a>
+    </div>
+</body>
+</html>
